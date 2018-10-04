@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style2.css">
+<meta charset="ISO-8859-1">
+<title>Proxi Banque SI</title>
+</head>
+<body>
+
+	<h1>Créer client</h1>
+	<p>Cher utilisateur, merci de bien vouloir renseigner les informations concernant le nouveau client</p>
+
+	<form method="post" action="CreerClient">
+		<fieldset>
+			<legend>Informations client</legend>
+
+			<p>
+				nom : <input type="text" name="nom" placeholder="Dupont" />
+				<br>
+				<br>
+				prénom : <input type="text" name="prenom" placeholder="Marc" />
+				<br>
+				<br>
+				adresse : <input type="text" name="adresse" placeholder="48 Avenue des Champs Elysés" />
+				<br>
+				<br>
+				Code Postal : <input type="text" name="cp" placeholder="75008" />
+				<br>
+				<br>
+				Ville : <input type="text" name="ville" placeholder="Paris" />
+				<br>
+				<br>
+				montant du 1er dépot sur compte courant : <input type="number" name="depotCC" placeholder="5000" />
+				<br>
+				<br>
+				montant du 1er dépot sur compte épargne : <input type="text" name="depotCE" placeholder="2000" />
+				<br>
+				<br>
+			</p>
+
+		</fieldset>
+
+		<input type="reset" value="reset" /> <input type="submit"
+			value="Valider" />
+	</form>
+<!-- boutton home et footer -->
+<br>
+	<br>
+	<a href="index.html"> <img border="0" src="img/home.png" width="60" height="60"></a>
+	<br>
+	<br>
+<div id="footer">© Copyright 2018</div>
+</body>
+</html>

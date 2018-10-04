@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+#content {
+	overflow: auto;
+}
+
+body {
+	width: 95%;
+	margin: 0 auto;
+}
+
+
+#nav, #feature, #footer {
+	margin: 0.05%;
+}
+
+#nav, #footer {
+	background-color: #efefef;
+	padding: 0.5em 0;
+}
+
+
+
+
+
+* {
+	font-family: Arial, sans-serif;
+	color: #665544;
+
+}
