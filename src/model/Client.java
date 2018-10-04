@@ -13,6 +13,7 @@ public class Client {
 //Attributs
 
 	private int idClient;
+	private String idWEB;
 	private String nom;
 	private String prenom;
 	private String adresse;
@@ -44,13 +45,36 @@ public class Client {
 		this.compteEpargne = compteEpargne;
 	}
 
+	public Client(int idClient, String idWEB, String nom, String prenom, String adresse, int codePostal, String ville) {
+		this.idClient = idClient;
+		this.idWEB = idWEB;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.telephone = telephone;
+		this.compteCourant = compteCourant;
+		this.compteEpargne = compteEpargne;
+	}
+
 	// Getters & setters
 	public int getid() {
 		return idClient;
 	}
 
 	public void setid(int id) {
+		idWEB = String.valueOf(id);
+		System.out.println("caca" + idWEB);
 		this.idClient = id;
+	}
+
+	public String getIdWEB() {
+		return idWEB;
+	}
+
+	public void setIdWEB(String idWEB) {
+		this.idWEB = idWEB;
 	}
 
 	public String getNom() {
@@ -119,8 +143,9 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return "Client [idClient=" + idClient + ", nom=" + nom + ", compteCourant=" + compteCourant + ", compteEpargne="
-				+ compteEpargne + "]";
+		return "Client [idClient=" + idClient + ", idWEB=" + idWEB + ", nom=" + nom + ", prenom=" + prenom
+				+ ", adresse=" + adresse + ", codePostal=" + codePostal + ", ville=" + ville + ", telephone="
+				+ telephone + ", compteCourant=" + compteCourant + ", compteEpargne=" + compteEpargne + "]";
 	}
 
 }

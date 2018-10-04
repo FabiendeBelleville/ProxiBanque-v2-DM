@@ -2,6 +2,7 @@ package service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ import persistance.DAOConseiller;
 import persistance.MemoryConseillerDAO;
 import persistance.MemoryDAO;
 import presentation.CreerClient;
-import presentation.findClient;
+import presentation.FindClient;
 
 /**
  * 
@@ -49,9 +50,6 @@ public class ImplementationService implements Service {
 
 	@Override
 	public List<Client> consulterListeClient() {
-		System.out.println("Voici la liste exhaustive des clients de l'agence");
-		System.out.println(dao.findAll());
-		System.out.println("retour menu principal");
 		return dao.findAll();
 	}
 
@@ -68,14 +66,11 @@ public class ImplementationService implements Service {
 		if (suppr.equals("oui")) {
 			dao.delete(id1);
 			System.out.println("Client supprimé");
-			System.out.println("retour au menu principal");
 		} else if (suppr.equals("non")) {
 			System.out.println("annulation");
-			System.out.println("retour au menu principal");
 
 		} else {
 			System.out.println("erreur de saisie");
-			System.out.println("retour au menu principal");
 
 		}
 
@@ -117,7 +112,6 @@ public class ImplementationService implements Service {
 		System.out.println("Rapporté à une année, le coût du prêt est de " + coutAnnuelDuPretRounded + " euros/an");
 		System.out.println("*************************************************************");
 		System.out.println("");
-		System.out.println("retour au menu principal");
 
 	}
 
@@ -182,12 +176,22 @@ public class ImplementationService implements Service {
 
 	}
 
-	private void faireVirement(double montant, Compte compteDestinataire, Compte compteEmetteur, String typeEmetteur) {
+	private List<String> faireVirement(double montant, Compte compteDestinataire, Compte compteEmetteur,
+			String typeEmetteur) {
+		List<String> consoleprofonde = new ArrayList<>();
 		// Affichage opération à effectuer
-		System.out.println("Le virement bancaire suivant va être effectué :");
-		System.out.println("Le compte Emetteur est : " + compteEmetteur);
-		System.out.println("Le compte Destinataire est : " + compteDestinataire);
-		System.out.println("Le montant du virement est : " + montant);
+		String l1 = "Le virement bancaire suivant va être effectué :";
+		System.out.println(l1);
+		consoleprofonde.add(l1);
+		String l2 = "Le compte Emetteur est : " + compteEmetteur;
+		System.out.println(l2);
+		consoleprofonde.add(l2);
+		String l3 = "Le compte Destinataire est : " + compteDestinataire;
+		System.out.println(l3);
+		consoleprofonde.add(l3);
+		String l4 = "Le montant du virement est : " + montant;
+		System.out.println(l4);
+		consoleprofonde.add(l4);
 
 		// type de compte emetteur
 		double decouvertAutorise = 0;
@@ -201,77 +205,82 @@ public class ImplementationService implements Service {
 
 		// opération
 		if ((compteEmetteur.getSolde() - montant) < -decouvertAutorise) {
-			System.out.println("******************************************");
-			System.out.println("REFFUSE : le virement n'a pas été effectué");
-			System.out.println("******************************************");
-			System.out.println("Cause : solde compte emetteur insuffisant");
+			String l5 = "******************************************";
+			consoleprofonde.add(l5);
+			System.out.println(l5);
+			String l6 = "REFFUSE : le virement n'a pas été effectué";
+			consoleprofonde.add(l6);
+			System.out.println(l6);
+			String l7 = "******************************************";
+			consoleprofonde.add(l7);
+			System.out.println(l7);
+			String l8 = "Cause : solde compte emetteur insuffisant";
+			consoleprofonde.add(l8);
+			System.out.println(l8);
 
 		} else {
 			compteDestinataire.setSolde(compteDestinataire.getSolde() + montant);
 			compteEmetteur.setSolde(compteEmetteur.getSolde() - montant);
 
 			// Affichage récapicé
-			System.out.println("************************************");
-			System.out.println("ACCEPTE : le virement a été effectué");
-			System.out.println("************************************");
-			System.out.println("à présent, le compte Destinataire (n°" + compteDestinataire.getNumeroDeCompte()
-					+ " est : " + compteDestinataire);
-			System.out.println("à présent, le compte Emetteur (n°" + compteEmetteur.getNumeroDeCompte() + " est : "
-					+ compteEmetteur);
+			String l9 = "************************************";
+			System.out.println(l9);
+			consoleprofonde.add(l9);
+			String l10 = "ACCEPTE : le virement a été effectué";
+			System.out.println(l10);
+			consoleprofonde.add(l10);
+			String l11 = "************************************";
+			System.out.println(l11);
+			consoleprofonde.add(l11);
+			String l12 = "à présent, le compte Destinataire (n°" + compteDestinataire.getNumeroDeCompte() + " est : "
+					+ compteDestinataire;
+			System.out.println(l12);
+			consoleprofonde.add(l12);
+			String l13 = "à présent, le compte Emetteur (n°" + compteEmetteur.getNumeroDeCompte() + " est : "
+					+ compteEmetteur;
+			System.out.println(l13);
+			consoleprofonde.add(l13);
 		}
+
+		return consoleprofonde;
 
 	}
 
 	@Override
-	public void faireVirement() {
-		Compte compteDestinataire = null;
-		Compte compteEmetteur = null;
+	public List<String> faireVirement(double montant, int numCompteEmetteur, int numCompteDestinataire) {
+		// celle à lier avec PRESENTATION
 		String typeEmetteur = null;
+		Compte compteEmetteur = null;
+		Compte compteDestinataire = null;
+		double montantTmp = montant;
 
-		Scanner scanner = new Scanner(System.in);
-
-		// Interface
-		System.out.println("Veuillez entrer le montant du virement");
-		double montantTmp = scanner.nextDouble();
-		scanner.nextLine();
-
-		while (compteDestinataire == null || compteEmetteur == null) {
-			compteDestinataire = null;
-			compteEmetteur = null;
-
-			System.out.println("Veuillez entrer le numéro de compte émetteur");
-			int numCompteEmetteur = scanner.nextInt();
-			scanner.nextLine();
-
-			System.out.println("Veuillez entrer le numéro de compte destinataire");
-			int numCompteDestinataire = scanner.nextInt();
-			scanner.nextLine();
-
-			for (Client client : dao.findAll()) {
-				if (client.getCompteCourant().getNumeroDeCompte() == numCompteEmetteur) {
-					compteEmetteur = client.getCompteCourant();
-					typeEmetteur = "Courant";
-				}
-				if (client.getCompteEpargne().getNumeroDeCompte() == numCompteEmetteur) {
-					compteEmetteur = client.getCompteEpargne();
-					typeEmetteur = "Epargne";
-				}
-				if (client.getCompteCourant().getNumeroDeCompte() == numCompteDestinataire) {
-					compteDestinataire = client.getCompteCourant();
-				}
-				if (client.getCompteEpargne().getNumeroDeCompte() == numCompteDestinataire) {
-					compteDestinataire = client.getCompteEpargne();
-				}
+		for (Client client : dao.findAll()) {
+			if (client.getCompteCourant().getNumeroDeCompte() == numCompteEmetteur) {
+				compteEmetteur = client.getCompteCourant();
+				typeEmetteur = "Courant";
 			}
-
-			if (compteDestinataire == null) {
-				System.out.println("Le compte destinataire #" + numCompteDestinataire + "# est introuvable");
+			if (client.getCompteEpargne().getNumeroDeCompte() == numCompteEmetteur) {
+				compteEmetteur = client.getCompteEpargne();
+				typeEmetteur = "Epargne";
 			}
-			if (compteEmetteur == null) {
-				System.out.println("Le compte émetteur #" + numCompteEmetteur + "# est introuvable");
+			if (client.getCompteCourant().getNumeroDeCompte() == numCompteDestinataire) {
+				compteDestinataire = client.getCompteCourant();
+			}
+			if (client.getCompteEpargne().getNumeroDeCompte() == numCompteDestinataire) {
+				compteDestinataire = client.getCompteEpargne();
 			}
 		}
-		faireVirement(montantTmp, compteDestinataire, compteEmetteur, typeEmetteur);
+
+		if (compteDestinataire == null) {
+			System.out.println("Le compte destinataire #" + numCompteDestinataire + "# est introuvable");
+		}
+		if (compteEmetteur == null) {
+			System.out.println("Le compte émetteur #" + numCompteEmetteur + "# est introuvable");
+		}
+
+		List<String> console0 = faireVirement(montantTmp, compteDestinataire, compteEmetteur, typeEmetteur);
+
+		return console0;
 	}
 
 	@Override

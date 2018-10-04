@@ -11,6 +11,7 @@ import java.util.List;
 public class Conseiller {
 	// Attributs
 	private int id;
+	private String pwd;
 	private String nom;
 	private String prenom;
 	public String idAgence;

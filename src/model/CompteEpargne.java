@@ -28,10 +28,7 @@ public class CompteEpargne extends Compte {
 
 	@Override
 	public String toString() {
-		return "CompteEpargne [dateOuverture=" + dateOuverture + ", solde=" + solde + ", numeroDeCompte="
-				+ numeroDeCompte + ", getDecouvertAutoriseCE()=" + getDecouvertAutoriseCE() + "]";
+		return "C. Epargne [solde=" + solde + ", numeroDeCompte=" + numeroDeCompte + "]";
 	}
-	
-	
 
 }

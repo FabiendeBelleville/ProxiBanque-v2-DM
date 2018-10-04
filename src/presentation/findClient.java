@@ -16,19 +16,20 @@ import service.Service;
 /**
  * Servlet implementation class CestQui
  */
-@WebServlet("/findclient")
-public class findClient extends HttpServlet {
+@WebServlet("/FindClient")
+public class FindClient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private int id;
 
 	Service service = new ImplementationService();
 
-	public findClient() {
+	public FindClient() {
 		super();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("id");
 
 		String idS = request.getParameter("id");
 		id = Integer.parseInt(idS);

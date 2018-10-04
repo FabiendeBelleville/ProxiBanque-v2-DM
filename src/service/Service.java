@@ -24,7 +24,7 @@ public interface Service {
 
 	public void supprimerClient(int id);
 
-	public void faireVirement();
+	public List<String> faireVirement(double montant, int numCompteEmetteur, int numCompteDestinataire);
 
 	public void simulerCredit();
 
