@@ -36,13 +36,16 @@ public class Login extends HttpServlet {
 		DAOContext.init(this.getServletContext());
 	}
 
+
 	// premiere fois dansle doGet du coup je ne sauvegarde pas mon login
 	// qui est en chaine vide ainsi que errorMessage
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setAttribute("login", "");
 		request.setAttribute("password", "");
 		request.setAttribute("errorMessage", "");
+
 
 	// redirection vers la VUE au niveau du login.jsp qui doit afficher les données
 
@@ -71,11 +74,13 @@ public class Login extends HttpServlet {
 		// de la requete. Si il est different de null et bien connecté je le redirige
 		// vers d'autres pages ou bien pointeur null on est en erreur
 		
+
 		Conseiller conseiller = UserDAO.isValidLogin(login, password);
 		if (conseiller != null) {
 
 			HttpSession session = request.getSession(true);
 			session.setAttribute("connectedUser", conseiller);
+
 
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 
@@ -84,6 +89,7 @@ public class Login extends HttpServlet {
 			request.setAttribute("errorMessage", "Mauvaise identité");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 			System.out.println("Mauvaise authentification");
+
 
 		}
 	}

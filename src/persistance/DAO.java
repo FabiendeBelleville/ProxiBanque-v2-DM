@@ -3,6 +3,7 @@ package persistance;
 import java.util.List;
 
 import model.Client;
+import model.Compte;
 
 /**
  * 
@@ -14,6 +15,10 @@ public interface DAO {
 	// Client
 	// Create
 	public void save(Client c);
+	
+	//Compte
+	//Create
+	public void save(Compte cpt);
 
 	// Read
 	public Client findById(int id);

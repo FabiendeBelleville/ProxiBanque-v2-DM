@@ -21,28 +21,27 @@ public class Client {
 	private String ville;
 	private Number telephone;
 
-	private CompteCourant compteCourant;
-	private CompteEpargne compteEpargne;
+//	private CompteCourant compteCourant;
+//	private CompteEpargne compteEpargne;
+
+	private int numcptC;
+	private int numcptE;
 
 	// Constructeur
-	public Client() {
-		this("BABAR", "Tanguy", "9 rue des Platanes", 75015, "Paris", 675988684, null, null);
-	}
-
-	public Client(CompteCourant compteCourant, CompteEpargne compteEpargne) {
-		this("BABAR", "Tanguy", "9 rue des Platanes", 75015, "Paris", 675988684, compteCourant, compteEpargne);
-	}
+//	public Client() {
+//		this("BABAR", "Tanguy", "9 rue des Platanes", 75015, "Paris", 675988684, null, null);
+//	}
 
 	public Client(String nom, String prenom, String adresse, int codePostal, String ville, Number telephone,
-			CompteCourant compteCourant, CompteEpargne compteEpargne) {
+			int numcptC, int numcptE) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.telephone = telephone;
-		this.compteCourant = compteCourant;
-		this.compteEpargne = compteEpargne;
+		this.numcptC = numcptC;
+		this.numcptE = numcptE;
 	}
 
 	public Client(int idClient, String idWEB, String nom, String prenom, String adresse, int codePostal, String ville) {
@@ -54,14 +53,46 @@ public class Client {
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.telephone = telephone;
-		this.compteCourant = compteCourant;
-		this.compteEpargne = compteEpargne;
+		this.numcptC = numcptC;
+		this.numcptE = numcptE;
 	}
+	
+	//Client(idClient, nom, prenom, adresse, cp, ville);
+	public Client(int idClient, String nom, String prenom, String adresse, int codePostal, String ville) {
+		super();
+		this.idClient = idClient;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.codePostal = codePostal;
+		this.ville = ville;
+	}
+	
+	
+	//Client(idClient, idWEB, nom, prenom, adresse, codePostal, ville, numcptC, numcptE);
+	public Client(int idClient, String idWEB, String nom, String prenom, String adresse, int codePostal, String ville,
+			int numcptC, int numcptE) {
+		super();
+		this.idClient = idClient;
+		this.idWEB = idWEB;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.codePostal = codePostal;
+		this.ville = ville;
+		this.numcptC = numcptC;
+		this.numcptE = numcptE;
+	}
+	
+
+
 
 	// Getters & setters
 	public int getid() {
 		return idClient;
 	}
+
+	
 
 	public void setid(int id) {
 		idWEB = String.valueOf(id);
@@ -125,27 +156,42 @@ public class Client {
 		this.telephone = telephone;
 	}
 
-	public CompteCourant getCompteCourant() {
-		return compteCourant;
+	public int getNumcptC() {
+		return numcptC;
 	}
 
-	public void setCompteCourant(CompteCourant compteCourant) {
-		this.compteCourant = compteCourant;
+	public void setNumcptC(int numcptC) {
+		this.numcptC = numcptC;
 	}
 
-	public CompteEpargne getCompteEpargne() {
-		return compteEpargne;
+	public int getNumcptE() {
+		return numcptE;
 	}
 
-	public void setCompteEpargne(CompteEpargne compteEpargne) {
-		this.compteEpargne = compteEpargne;
+	public void setNumcptE(int numcptE) {
+		this.numcptE = numcptE;
 	}
+
+//	public CompteCourant getCompteCourant() {
+//		return compteCourant;
+//	}
+//
+//	public void setCompteCourant(CompteCourant compteCourant) {
+//		this.compteCourant = compteCourant;
+//	}
+//
+//	public CompteEpargne getCompteEpargne() {
+//		return compteEpargne;
+//	}
+//
+//	public void setCompteEpargne(CompteEpargne compteEpargne) {
+//		this.compteEpargne = compteEpargne;
+//	}
 
 	@Override
 	public String toString() {
 		return "Client [idClient=" + idClient + ", idWEB=" + idWEB + ", nom=" + nom + ", prenom=" + prenom
 				+ ", adresse=" + adresse + ", codePostal=" + codePostal + ", ville=" + ville + ", telephone="
-				+ telephone + ", compteCourant=" + compteCourant + ", compteEpargne=" + compteEpargne + "]";
+				+ telephone + ", numcptC=" + numcptC + ", numcptE=" + numcptE + "]";
 	}
-
 }

@@ -35,11 +35,22 @@ public class ImplementationService implements Service {
 			double firstDepotCE) {
 
 		// Création client
-		CompteCourant courant = new CompteCourant(LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),
-				firstDepotCC, (int) Math.round(Math.random() * 1000000), 1000);
-		CompteEpargne epargne = new CompteEpargne(LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),
-				firstDepotCE, (int) Math.round(Math.random() * 1000000), 0);
-		dao.save(new Client(nom, prenom, adresse, cp, ville, 000000000, courant, epargne));
+		int numcptC = (int) Math.round(Math.random() * 1000000);
+		int numcptE = (int) Math.round(Math.random() * 1000000);
+//		CompteCourant courant = new CompteCourant(LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),
+//				firstDepotCC, numcptC, 1000);
+//
+//		CompteEpargne epargne = new CompteEpargne(LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),
+//				firstDepotCE, numcptE, 0);
+
+		dao.save(new Client(nom, prenom, adresse, cp, ville, 000000000, numcptC, numcptE));
+
+		dao.save(new CompteCourant(LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")), firstDepotCC,
+				numcptC, 1000));
+
+		dao.save(new CompteEpargne(LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")), firstDepotCE,
+				numcptE, 0));
+
 		System.out.println("Client sauvegardé !");
 	}
 
@@ -255,18 +266,18 @@ public class ImplementationService implements Service {
 		double montantTmp = montant;
 
 		for (Client client : dao.findAll()) {
-			if (client.getCompteCourant().getNumeroDeCompte() == numCompteEmetteur) {
+			if (client.getNumcptC() == numCompteEmetteur) {
 				compteEmetteur = client.getCompteCourant();
 				typeEmetteur = "Courant";
 			}
-			if (client.getCompteEpargne().getNumeroDeCompte() == numCompteEmetteur) {
+			if (client.getNumcptE() == numCompteEmetteur) {
 				compteEmetteur = client.getCompteEpargne();
 				typeEmetteur = "Epargne";
 			}
-			if (client.getCompteCourant().getNumeroDeCompte() == numCompteDestinataire) {
+			if (client.getNumcptC() == numCompteDestinataire) {
 				compteDestinataire = client.getCompteCourant();
 			}
-			if (client.getCompteEpargne().getNumeroDeCompte() == numCompteDestinataire) {
+			if (client.getNumcptE() == numCompteDestinataire) {
 				compteDestinataire = client.getCompteEpargne();
 			}
 		}
@@ -296,6 +307,11 @@ public class ImplementationService implements Service {
 			return tmp;
 		}
 		return tmp;
+	}
+
+	@Override
+	public void updateClient(Client c) {
+		dao.update(c);
 	}
 
 }
