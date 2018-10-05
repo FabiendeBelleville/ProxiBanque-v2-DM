@@ -57,9 +57,9 @@ font-family: sans-serif;
 					<td>${detailUser.prenom}</td>
 					<td>${detailUser.adresse}</td>
 					<td>${detailUser.ville}</td>
-					<td>${detailUser.compteCourant}</td>
-					<td>${detailUser.compteEpargne}</td>
-					<td><a href="FindClient?id=${detailUser.idWEB}">Editer</a></td>
+					<td>${detailUser.numcptC}</td>
+					<td>${detailUser.numcptE}</td>
+					<td><a href="FindClient?id=${detailUser.idWEB}">Consulter</a></td>
 				</tr>
 				<p>
 			</c:forEach>

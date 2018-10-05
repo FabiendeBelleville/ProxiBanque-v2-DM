@@ -16,8 +16,51 @@
 	<p>codePostal : ${detailUser.codePostal}
 	<p>ville : ${detailUser.ville}
 	<p>telephone : ${detailUser.telephone}
-	<p>compteCourant : ${detailUser.compteCourant}
-	<p>compteEpargne : ${detailUser.compteEpargne}
+	<p>compteCourant : ${detailUser.numcptC}
+	<p>compteEpargne : ${detailUser.numcptE}
+	
+	
+	
+	<form method="post" action="EditerClientPres">
+	
+	
+	
+	<fieldset>
+			<legend>Editer client ?</legend>
+
+			<p>
+				nom : <input type="text" name="nom" placeholder="${detailUser.nom}" />
+				<br>
+				<br>
+				prénom : <input type="text" name="prenom" placeholder="${detailUser.prenom}" />
+				<br>
+				<br>
+				adresse : <input type="text" name="adresse" placeholder="${detailUser.adresse}" />
+				<br>
+				<br>
+				Code Postal : <input type="text" name="cp" placeholder="${detailUser.codePostal}" />
+				<br>
+				<br>
+				Ville : <input type="text" name="ville" placeholder="${detailUser.ville}" />
+				<br>
+				<br>
+			</p>
+
+		</fieldset>
+	
+	
+	
+	
+	
+	
+	
+	<input type="submit"
+			value="Editer"/>
+	</form>
+	
+	
+	
+	
 	<!-- boutton home et footer -->
 <br>
 	<br>

@@ -21,6 +21,8 @@ public interface Service {
 	public Client consulterClient(int id);
 
 	public List<Client> consulterListeClient();
+	
+	public void updateClient(Client c);
 
 	public void supprimerClient(int id);
 
