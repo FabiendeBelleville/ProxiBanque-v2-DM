@@ -41,7 +41,7 @@ public class CreerClient extends HttpServlet {
 
 		service.creerClient(nom, prenom, adresse, cp, ville, firstDepotCC, firstDepotCE);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("index.html");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
 
 	}

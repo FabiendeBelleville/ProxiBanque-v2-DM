@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page import="java.util.Date"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,26 +11,26 @@
 </head>
 <body>
 
-	<h1>Trouver client</h1>
+	<h1>Consulter tous les clients</h1>
 	<h2><%= new Date() %></h2>
 	<p>Cher ${connectedUser.login}, merci de bien vouloir entrer l'id du client recherché</p>
 
-	<form method="post" action="FindClient">
-		<fieldset>
-			<legend>Trouver client</legend>
+	<form method="post" action="ConsulterTousLesClients">
+<!-- 		<fieldset> -->
+<!-- 			<legend>Trouver client</legend> -->
 
-			<p>
-				id Client : <input type="text" name="id" placeholder="6253625" />
-				<br>
-				<br>
-			</p>
-
-
-		</fieldset>
+<!-- 			<p> -->
+<!-- 				id Client : <input type="text" name="id" placeholder="6253625" /> -->
+<!-- 				<br> -->
+<!-- 				<br> -->
+<!-- 			</p> -->
 
 
-		<input type="reset" value="reset" /> <input type="submit"
-			value="Envoyer" />
+<!-- 		</fieldset> -->
+
+
+	<input type="submit"
+			value="Consulter !"/>
 	</form>
 <!-- boutton home et footer -->
 <br>

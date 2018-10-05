@@ -17,7 +17,7 @@
 		
 			<li><a href="formulaireCreationClient.jsp">1-Créer client</a></li>
 			<li><a href="formulaireFindClient.jsp">2-Consulter client</a></li>
-			<li><a href="formulaireFindAllClient.html">3-Consulter tous
+			<li><a href="formulaireFindAllClient.jsp">3-Consulter tous
 					les clients</a></li>
 			<li><a href="http://www.fabiendrouin.fr">4-Supprimer client</a></li>
 			<li><a href="formulaireVirement.jsp">5-Faire virement</a></li>

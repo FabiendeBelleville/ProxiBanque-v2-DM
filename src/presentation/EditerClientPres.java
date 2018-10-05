@@ -49,7 +49,7 @@ public class EditerClientPres extends HttpServlet {
 		Client c1 = new Client(idClient, nom, prenom, adresse, cp, ville);
 		service.updateClient(c1);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("index.html");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
 
 		response.getWriter().append("Served at: ").append(request.getContextPath());
