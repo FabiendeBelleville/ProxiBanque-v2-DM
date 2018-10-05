@@ -14,7 +14,9 @@ import service.ImplementationService;
 import service.Service;
 
 /**
- * Servlet implementation class CestQui
+ * Servlet implementation class FindClient. Cette SERVLET permet d'appeler la
+ * fonction service.consulterClient() de la couche service, et d'afficher le
+ * client recherché par id.
  */
 @WebServlet("/FindClient")
 public class FindClient extends HttpServlet {

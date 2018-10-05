@@ -2,9 +2,8 @@ package model;
 
 /**
  * 
- * @author Fabien & Madjid;Ceci est la classe Compte Epargne qui étend la classe
- *         Compte; Elle détient plusieurs constructeurs pour une certaine
- *         souplesse de création de compte
+ * @author Fabien & Marlon;Ceci est la classe Compte Epargne qui étend la classe
+ *         Compte;
  *
  */
 public class CompteEpargne extends Compte {

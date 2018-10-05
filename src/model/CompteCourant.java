@@ -2,17 +2,14 @@ package model;
 
 /**
  * 
- * @author Fabien & Madjid;Ceci est la classe Compte Courant qui étend la classe
- *         Compte; Elle détient plusieurs constructeurs pour une certaine
- *         souplesse de création de compte
+ * @author Fabien & Marlon;Ceci est la classe Compte Courant qui étend la classe
+ *         Compte; Elle détient un constructeur
  */
 public class CompteCourant extends Compte {
 
 	private static double decouvertAutoriseCC = 1000;
 
-	// Constructeur sans saisie du découvert authorisé
-
-//Constructeur complet
+	// Constructeur
 	public CompteCourant(String dateDuJour, double firstDepotCC, int numeroDeCompte, double decouvertAutoriseCC) {
 		super.dateOuverture = dateDuJour;
 		super.solde = firstDepotCC;

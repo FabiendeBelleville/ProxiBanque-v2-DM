@@ -23,7 +23,8 @@ public class EditerClientPres extends HttpServlet {
 	Service service = new ImplementationService();
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#HttpServlet() Cette SERVLET permet d'appeler la fonction
+	 *      service.updateClient() de la couche service pour mettre à jour un client
 	 */
 	public EditerClientPres() {
 		super();
@@ -38,7 +39,7 @@ public class EditerClientPres extends HttpServlet {
 			throws ServletException, IOException {
 
 		String idWEB = request.getParameter("idClient");
-		int idClient =Integer.parseInt(idWEB);
+		int idClient = Integer.parseInt(idWEB);
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String adresse = request.getParameter("adresse");

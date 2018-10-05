@@ -14,7 +14,9 @@ import service.ImplementationService;
 import service.Service;
 
 /**
- * Servlet implementation class consulterTousLesClients
+ * Servlet implementation class consulterTousLesClients Permet de faire la
+ * liaison entre AffichageFindAllClient.jsp et la fonction
+ * service.consulterListeClient().
  */
 @WebServlet("/ConsulterTousLesClients")
 public class ConsulterTousLesClients extends HttpServlet {

@@ -7,7 +7,7 @@ import model.Compte;
 
 /**
  * 
- * @author Fabien & Madjid; L'interface DAO est tel un contrat de sauvegarde des objets clients.
+ * @author Fabien & Marlon ; L'interface DAO est tel un contrat de sauvegarde des objets clients.
  *
  */
 public interface DAO {

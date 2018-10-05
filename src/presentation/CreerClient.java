@@ -13,7 +13,8 @@ import service.ImplementationService;
 import service.Service;
 
 /**
- * Servlet dans Presentation : Creer Client
+ * Servlet dans Presentation : Creer Client. Cette Servlet permet de créer un
+ * client en appelant la fonction service.creerClient de la couche service.
  */
 @WebServlet("/CreerClient")
 public class CreerClient extends HttpServlet {

@@ -2,12 +2,10 @@ package model;
 
 /**
  * 
- * @author Fabien et Madjid. La classe Client est l'une des classe les plus
+ * @author Fabien et Marlon. La classe Client est l'une des classe les plus
  *         importantes du package model par son nombre d'attributs, avec leurs
  *         getters et setters associés ainsi qu'une méthode toString complète.
- *         Elle correspond au model de fiche client, incluant même les attriburs
- *         de Compte (courant et épargne).
- *
+ *         Elle correspond au model de fiche client.
  */
 public class Client {
 //Attributs
@@ -21,16 +19,8 @@ public class Client {
 	private String ville;
 	private Number telephone;
 
-//	private CompteCourant compteCourant;
-//	private CompteEpargne compteEpargne;
-
 	private int numcptC;
 	private int numcptE;
-
-	// Constructeur
-//	public Client() {
-//		this("BABAR", "Tanguy", "9 rue des Platanes", 75015, "Paris", 675988684, null, null);
-//	}
 
 	public Client(String nom, String prenom, String adresse, int codePostal, String ville, Number telephone,
 			int numcptC, int numcptE) {
@@ -52,12 +42,9 @@ public class Client {
 		this.adresse = adresse;
 		this.codePostal = codePostal;
 		this.ville = ville;
-		this.telephone = telephone;
-		this.numcptC = numcptC;
-		this.numcptE = numcptE;
 	}
-	
-	//Client(idClient, nom, prenom, adresse, cp, ville);
+
+	// Client(idClient, nom, prenom, adresse, cp, ville)
 	public Client(int idClient, String nom, String prenom, String adresse, int codePostal, String ville) {
 		super();
 		this.idClient = idClient;
@@ -67,9 +54,9 @@ public class Client {
 		this.codePostal = codePostal;
 		this.ville = ville;
 	}
-	
-	
-	//Client(idClient, idWEB, nom, prenom, adresse, codePostal, ville, numcptC, numcptE);
+
+	// Client(idClient, idWEB, nom, prenom, adresse, codePostal, ville, numcptC,
+	// numcptE)
 	public Client(int idClient, String idWEB, String nom, String prenom, String adresse, int codePostal, String ville,
 			int numcptC, int numcptE) {
 		super();
@@ -83,16 +70,11 @@ public class Client {
 		this.numcptC = numcptC;
 		this.numcptE = numcptE;
 	}
-	
-
-
 
 	// Getters & setters
 	public int getid() {
 		return idClient;
 	}
-
-	
 
 	public void setid(int id) {
 		idWEB = String.valueOf(id);
@@ -171,22 +153,6 @@ public class Client {
 	public void setNumcptE(int numcptE) {
 		this.numcptE = numcptE;
 	}
-
-//	public CompteCourant getCompteCourant() {
-//		return compteCourant;
-//	}
-//
-//	public void setCompteCourant(CompteCourant compteCourant) {
-//		this.compteCourant = compteCourant;
-//	}
-//
-//	public CompteEpargne getCompteEpargne() {
-//		return compteEpargne;
-//	}
-//
-//	public void setCompteEpargne(CompteEpargne compteEpargne) {
-//		this.compteEpargne = compteEpargne;
-//	}
 
 	@Override
 	public String toString() {

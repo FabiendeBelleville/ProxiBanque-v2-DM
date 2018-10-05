@@ -14,9 +14,9 @@ import model.Compte;
 
 /**
  * 
- * @author Fabien et Madjid. La classe MemoryDAO permet d'enregistrer les objets
- *         Client en simulant la sauvegarde en base de donnée. Elle implémente
- *         les fonctions de l'interface DAOConseiller
+ * @author Fabien et Marlon. La classe MemoryDAO permet d'enregistrer les objets
+ *         Client en base de donnée. Elle implémente
+ *         les fonctions de l'interface DAO
  *
  */
 public class MemoryDAO implements DAO {
@@ -29,11 +29,6 @@ public class MemoryDAO implements DAO {
 
 	@Override
 	public void save(Client c) {
-		// avant
-//		c.setid(idClient); // Artifice pour simuler l'auto increment d'une DB. Ne fait pas tous les cas !
-//		DBClient.put(c.getid(), c);
-//		System.out.println(DBClient);
-//		idClient++;
 		System.out.println("on est la");
 		int result = -1;
 		Connection cn = null;

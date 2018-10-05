@@ -5,7 +5,7 @@ import model.Conseiller;
 
 /**
  * 
- * @author Fabien et Madjid. L'interface DAOConseiller est tel un contrat de sauvegarde des objets Conseillers.
+ * @author Fabien et Marlon. L'interface DAOConseiller est tel un contrat de sauvegarde des objets Conseillers.
  *
  */
 public interface DAOConseiller {

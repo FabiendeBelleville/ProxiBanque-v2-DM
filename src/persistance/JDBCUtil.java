@@ -6,6 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * 
+ * @author Fabien & Marlon ; JDBC Util contient les méthodes seConnecter et
+ *         seDeconnecter propre à la database proxibanque-v2-dm avec login
+ *         password et driver, évitant de faire de la redondance de code source
+ *         d'erreur
+ *
+ */
 public abstract class JDBCUtil {
 	private static final String url = "jdbc:mysql://localhost/proxibanque-v2-dm";
 	private static final String login = "root";

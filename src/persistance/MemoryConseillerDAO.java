@@ -9,7 +9,7 @@ import model.Conseiller;
 
 /**
  * 
- * @author Fabien et Madjid. La classe MemoryConseillerDAO permet d'enregistrer
+ * @author Fabien et Marlon. La classe MemoryConseillerDAO permet d'enregistrer
  *         les objets Conseiller en simulant la sauvegarde en base de donnée.
  *         Elle implémente les fonctions de l'interface DAOConseiller
  */

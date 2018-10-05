@@ -20,10 +20,10 @@ import presentation.FindClient;
 
 /**
  * 
- * @author Fabien & Madjid; La classe ImplementationService implements Service.
+ * @author Fabien & Marlon; La classe ImplementationService implements Service.
  *         C'est la classe où les méthodes sont codées. Les DAO Client et
- *         Conseiller sont instanciées ici. A ce stade du développement de
- *         l'application, la méthode Audit reste inachevée.
+ *         DAO Conseiller sont instanciées ici. A ce stade du développement de
+ *         l'application, les méthodes Faire Virement et Audit restent inachevées.
  * 
  */
 public class ImplementationService implements Service {
@@ -265,30 +265,30 @@ public class ImplementationService implements Service {
 		Compte compteDestinataire = null;
 		double montantTmp = montant;
 
-		for (Client client : dao.findAll()) {
-			if (client.getNumcptC() == numCompteEmetteur) {
-				compteEmetteur = client.getCompteCourant();
-				typeEmetteur = "Courant";
-			}
-			if (client.getNumcptE() == numCompteEmetteur) {
-				compteEmetteur = client.getCompteEpargne();
-				typeEmetteur = "Epargne";
-			}
-			if (client.getNumcptC() == numCompteDestinataire) {
-				compteDestinataire = client.getCompteCourant();
-			}
-			if (client.getNumcptE() == numCompteDestinataire) {
-				compteDestinataire = client.getCompteEpargne();
-			}
-		}
-
-		if (compteDestinataire == null) {
-			System.out.println("Le compte destinataire #" + numCompteDestinataire + "# est introuvable");
-		}
-		if (compteEmetteur == null) {
-			System.out.println("Le compte émetteur #" + numCompteEmetteur + "# est introuvable");
-		}
-
+//		for (Client client : dao.findAll()) {
+//			if (client.getNumcptC() == numCompteEmetteur) {
+//				compteEmetteur = client.getCompteCourant();
+//				typeEmetteur = "Courant";
+//			}
+//			if (client.getNumcptE() == numCompteEmetteur) {
+//				compteEmetteur = client.getCompteEpargne();
+//				typeEmetteur = "Epargne";
+//			}
+//			if (client.getNumcptC() == numCompteDestinataire) {
+//				compteDestinataire = client.getCompteCourant();
+//			}
+//			if (client.getNumcptE() == numCompteDestinataire) {
+//				compteDestinataire = client.getCompteEpargne();
+//			}
+//		}
+//
+//		if (compteDestinataire == null) {
+//			System.out.println("Le compte destinataire #" + numCompteDestinataire + "# est introuvable");
+//		}
+//		if (compteEmetteur == null) {
+//			System.out.println("Le compte émetteur #" + numCompteEmetteur + "# est introuvable");
+//		}
+//
 		List<String> console0 = faireVirement(montantTmp, compteDestinataire, compteEmetteur, typeEmetteur);
 
 		return console0;

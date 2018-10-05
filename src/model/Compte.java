@@ -2,9 +2,9 @@ package model;
 
 /**
  * 
- * @author Fabien & Madjid; Ceci est la classe abstraite Compte. Elle contient 4
- *         attributs, un constructeur, et les getters et setters des attributs.
- *         Elle ne contient aucune méthode
+ * @author Fabien & Marlon; Ceci est la classe abstraite Compte. Elle contient
+ *         les attributs, un constructeur, et les getters et setters des
+ *         attributs. Elle ne contient aucune méthode
  */
 public abstract class Compte {
 // Attributs
@@ -14,7 +14,6 @@ public abstract class Compte {
 
 // Constructeur
 	public Compte() {
-
 	}
 
 //Getters & setters
@@ -46,7 +45,5 @@ public abstract class Compte {
 		// TODO Auto-generated method stub
 		return 5;
 	}
-
-// Méthodes
 
 }

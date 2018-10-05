@@ -8,7 +8,7 @@ import model.Conseiller;
 
 /**
  * 
- * @author Fabien & Madjid; L'interface Service contient les méthodes (vides)
+ * @author Fabien & Marlon; L'interface Service contient les méthodes (vides)
  *         qui seront implémentées dans la classe ImplementationService. Les
  *         méthodes ne sont donc ici que des signatures.
  *

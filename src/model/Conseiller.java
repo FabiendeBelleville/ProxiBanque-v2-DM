@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * 
- * @author Fabien & Madjid; Elle correspond au model de fiche Conseiller
+ * @author Fabien & Marlon ; Elle correspond au model de fiche Conseiller
  *
  */
 public class Conseiller {

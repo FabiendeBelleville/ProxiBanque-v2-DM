@@ -18,7 +18,8 @@ import service.ImplementationService;
 import service.Service;
 
 /**
- * Servlet dans Presentation : Creer Client
+ * Servlet Virement. En cours de développement, la fonction faire virement ne
+ * fonctionne pas encore.
  */
 @WebServlet("/Virement")
 public class Virement extends HttpServlet {
