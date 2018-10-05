@@ -27,8 +27,9 @@
 	
 	<fieldset>
 			<legend>Editer client ?</legend>
-
-			<p>
+			<p>idClient : <input type="text" name="idClient" placeholder="${detailUser.id}" />
+				<br>
+				<br>
 				nom : <input type="text" name="nom" placeholder="${detailUser.nom}" />
 				<br>
 				<br>
@@ -45,15 +46,7 @@
 				<br>
 				<br>
 			</p>
-
-		</fieldset>
-	
-	
-	
-	
-	
-	
-	
+		</fieldset>	
 	<input type="submit"
 			value="Editer"/>
 	</form>

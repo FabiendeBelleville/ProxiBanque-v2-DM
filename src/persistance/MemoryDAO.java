@@ -186,6 +186,7 @@ public class MemoryDAO implements DAO {
 			pst.setString(3, c.getAdresse());
 			pst.setInt(4, c.getCodePostal());
 			pst.setString(5, c.getVille());
+			pst.setInt(6, c.getid());
 			// étape 4 : exécution requête
 			result = pst.executeUpdate();
 			cn.commit();

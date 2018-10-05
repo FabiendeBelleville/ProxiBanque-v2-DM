@@ -57,10 +57,19 @@ public class Client {
 		this.numcptE = numcptE;
 	}
 	
+	//Client(idClient, nom, prenom, adresse, cp, ville);
+	public Client(int idClient, String nom, String prenom, String adresse, int codePostal, String ville) {
+		super();
+		this.idClient = idClient;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.codePostal = codePostal;
+		this.ville = ville;
+	}
 	
 	
-	// new Client(idClient, idWEB, nom, prenom, adresse, codePostal, ville, numcptC, numcptE);
-	
+	//Client(idClient, idWEB, nom, prenom, adresse, codePostal, ville, numcptC, numcptE);
 	public Client(int idClient, String idWEB, String nom, String prenom, String adresse, int codePostal, String ville,
 			int numcptC, int numcptE) {
 		super();
@@ -75,6 +84,8 @@ public class Client {
 		this.numcptE = numcptE;
 	}
 	
+
+
 
 	// Getters & setters
 	public int getid() {
