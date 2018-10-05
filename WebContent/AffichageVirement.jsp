@@ -66,7 +66,7 @@ caption {
 	<!-- boutton home et footer -->
 	<br>
 	<br>
-	<a href="index.html"> <img border="0" src="img/home.png" width="60"
+	<a href="index.jsp"> <img border="0" src="img/home.png" width="60"
 		height="60"></a>
 	<br>
 	<br>

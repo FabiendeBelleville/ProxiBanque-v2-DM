@@ -1,12 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>ProxiBanque-v2-DM</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+
+<!-- 	Les paramètres db-url, db-login et db-passwd sont -->
+<!-- 	écrits dans le fichier web.xml, ce qui permet de pouvoir les modifier -->
+<!-- 	sans avoir à recompiler notre application. -->
+<!-- 	La connexion est ensuite attachée -->
+<!-- 	au contexte application . Elle devient donc disponible auprès de -->
+<!-- 	toutes les servlets de notre application. Une fausse bonne idée consisterait -->
+<!-- 	à enregistrer cette connexion dans un champ statique. -->
+
+<!-- 	Comme un serveur est censé charger les servlets dans l'ordre dans lequel -->
+<!-- 	elles sont déclarées -->
+<!-- 	dans le fichier web.xml, il suffit de mettre la servlet qui sait se -->
+<!-- 	connecter en premier pour garantir -->
+<!-- 	que toutes les servlets pourront lire cette connexion. On peut même, -->
+<!-- 	ultime raffinement, ne pas associer -->
+<!-- 	cette servlet à une URL. Cette servlet est donc "borgne", on ne peut pas -->
+<!-- 	faire -->
+<!-- 	de requête dessus, son seul rôle consiste à établir cette connexion. -->
+
+
+
+
+	<display-name>ProxiBanque-v2-DM</display-name>
+
+
+	<context-param>
+		<param-name>JDBC_DRIVER</param-name>
+		<param-value>com.mysql.jdbc.Driver</param-value>
+	</context-param>
+
+	<context-param>
+
+
+		<param-name>JDBC_URL</param-name>
+		<param-value>jdbc:mysql://localhost/proxibanque-v2-dm</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>JDBC_LOGIN</param-name>
+		<param-value>root</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>JDBC_PASSWORD</param-name>
+		<param-value></param-value>
+	</context-param>
+
+
+
+	<session-config>
+		<session-timeout>5</session-timeout>
+	</session-config>
+
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>

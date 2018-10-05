@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ page import="java.util.Date"%>
+
+
 <!DOCTYPE html>
+
+
+
+
 <html>
 <head>
 <link rel="stylesheet" href="style2.css">
@@ -36,7 +43,8 @@ font-family: sans-serif;
 </head>
 <body>
 	<h1>Liste des Clients</h1>
-	Voici la liste de l'ensemble des client du conseiller loggé :
+	<h2><%= new Date() %></h2>
+	${connectedUser.login}, voici la liste de vos client(s) :
 	<br>
 	<br>
 	<br>
@@ -69,7 +77,7 @@ font-family: sans-serif;
 	<!-- boutton home et footer -->
 	<br>
 	<br>
-	<a href="index.html"> <img border="0" src="img/home.png" width="60"
+	<a href="index.jsp"> <img border="0" src="img/home.png" width="60"
 		height="60"></a>
 	<br>
 	<br>
