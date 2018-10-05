@@ -13,11 +13,41 @@ import model.Conseiller;
 import persistance.DAOContext;
 import persistance.UserDAO;
 
-//Quand l'application va demarrer chargement automatique de 
-//notre servlet et de notre methode init qui va demarrer et charger notre 
-//contexte
-//Tant que le login ne sera pas bien renseigné la page restera sur notre page login.
-//Des lors que l'on est itentifier on restera dans la Servlet
+/**
+ * Quand l'application démarre, chargement automatique de nla servlet et de la
+ * methode init qui va demarrer et charger le contexte. Tant que le login ne sera
+ * pas bien renseigné la page restera sur la page login. Des lors que l'on
+ * est itentifié on restera dans la Servlet.
+ * 
+ * Au démmarage la Servlet va demander à initialiser un DAOContext permettant de
+ * récuperer le contexte dans laquelle la servlet est demarrée, permettant ainsi
+ * d'executer la page web.xml
+ * 
+ * La premiere fois dans le doGet le loginne sera pas sauvgarder,
+ * mais en chaine vide ainsi que errorMessage
+ * 
+ * 
+ * 
+ * Dans @request.getRequestDispatcher redirection vers la VUE au niveau du
+ * login.jsp qui doit afficher les données
+ * 
+ * 
+ * 
+ * Sur @request.setAttribute("login", login); Dans le cas ou l'erruer
+ * d'authentification est du a un mauvais password On stocke le login pour que
+ * l'utilisateur n'ait pas a le retaper
+ * 
+ * 
+ * Dans @Conseiller conseiller = UserDAO.isValidLogin(login, password); On se
+ * connecte a la BDD via UserDAO qui contient une methode static IsvalidLogin a
+ * qui l'on passe le login et le password que l'on a au niveau de la requete. Si
+ * il est different de null et bien connecté je le redirige vers d'autres pages
+ * ou bien pointeur null on est en erreur
+ * 
+ * 
+ * @author Marlon/Fabien
+ *
+ */
 
 @WebServlet("/Login")
 public class Login extends HttpServlet {
@@ -27,18 +57,21 @@ public class Login extends HttpServlet {
 		super();
 
 	}
-	// Au démmarage la Servlet va demander a initialiser un DAOContext permettant de
-	// recuperer
-	// le contexte dans laquelle
-	// la servlet est demarrer permettant ainsi d'executer la page web.xml
+
+//	/**
+//	 * Au démmarage la Servlet va demander a initialiser un DAOContext permettant de
+//	 * recuperer le contexte dans laquelle la servlet est demarrer permettant ainsi
+//	 * d'executer la page web.xml
+//	 */
 
 	public void init() throws ServletException {
 		DAOContext.init(this.getServletContext());
 	}
 
-
-	// premiere fois dansle doGet du coup je ne sauvegarde pas mon login
-	// qui est en chaine vide ainsi que errorMessage
+//	/**
+//	 * premiere fois dansle doGet du coup je ne sauvegarde pas mon login qui est en
+//	 * chaine vide ainsi que errorMessage
+//	 */
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -46,41 +79,42 @@ public class Login extends HttpServlet {
 		request.setAttribute("password", "");
 		request.setAttribute("errorMessage", "");
 
-
-	// redirection vers la VUE au niveau du login.jsp qui doit afficher les données
+//		/**
+//		 * redirection vers la VUE au niveau du login.jsp qui doit afficher les données
+//		 * 
+//		 */
 
 		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}
 
-
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-	// je sors le login et le password et je stock cela dans la request qui est 
-	//	mon modèle de representation
-		
+//		/**
+//		 * je sors le login et le password et je stock cela dans la request qui est mon
+//		 * modèle de representation
+//		 */
+
 		String login = request.getParameter("txtLogin");
 		String password = request.getParameter("txtPassword");
-		
-	//Dans le cas ou l'erruer d'authentification est du a un mauvais password 
-	//On stocke le login pour que l'utilisateur n'ait pas a le retaper
-		
+		/**
+		 * Dans le cas ou l'erruer d'authentification est du a un mauvais password On
+		 * stocke le login pour que l'utilisateur n'ait pas a le retaper
+		 */
+
 		request.setAttribute("login", login);
 		request.setAttribute("password", password);
-
-	//Connection a la BDD via UserDAO qui contient une methode static
-	//	IsvalidLogin a qui l'on passe le login et le password que l'on a au niveau 
-		// de la requete. Si il est different de null et bien connecté je le redirige
-		// vers d'autres pages ou bien pointeur null on est en erreur
-		
+		/**
+		 * Connection a la BDD via UserDAO qui contient une methode static IsvalidLogin
+		 * a qui l'on passe le login et le password que l'on a au niveau de la requete.
+		 * Si il est different de null et bien connecté je le redirige vers d'autres
+		 * pages ou bien pointeur null on est en erreur
+		 */
 
 		Conseiller conseiller = UserDAO.isValidLogin(login, password);
 		if (conseiller != null) {
 
 			HttpSession session = request.getSession(true);
 			session.setAttribute("connectedUser", conseiller);
-
 
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 
@@ -89,7 +123,6 @@ public class Login extends HttpServlet {
 			request.setAttribute("errorMessage", "Mauvaise identité");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 			System.out.println("Mauvaise authentification");
-
 
 		}
 	}
