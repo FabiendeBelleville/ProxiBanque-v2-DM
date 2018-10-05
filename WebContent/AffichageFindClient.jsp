@@ -27,22 +27,22 @@
 	
 	<fieldset>
 			<legend>Editer client ?</legend>
-			<p>idClient : <input type="text" name="idClient" placeholder="${detailUser.id}" />
+			<p><input type="hidden" name="idClient" value="${detailUser.id}"/>
 				<br>
 				<br>
-				nom : <input type="text" name="nom" placeholder="${detailUser.nom}" />
+				nom : <input type="text" name="nom" value="${detailUser.nom}"/>
 				<br>
 				<br>
-				prénom : <input type="text" name="prenom" placeholder="${detailUser.prenom}" />
+				prénom : <input type="text" name="prenom" value="${detailUser.prenom}"/>
 				<br>
 				<br>
-				adresse : <input type="text" name="adresse" placeholder="${detailUser.adresse}" />
+				adresse : <input type="text" name="adresse" value="${detailUser.adresse}"/>
 				<br>
 				<br>
-				Code Postal : <input type="text" name="cp" placeholder="${detailUser.codePostal}" />
+				Code Postal : <input type="text" name="cp" value="${detailUser.codePostal}"/>
 				<br>
 				<br>
-				Ville : <input type="text" name="ville" placeholder="${detailUser.ville}" />
+				Ville : <input type="text" name="ville" value="${detailUser.ville}"/>
 				<br>
 				<br>
 			</p>
