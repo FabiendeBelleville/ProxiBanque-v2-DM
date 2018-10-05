@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@ page import="java.util.Date"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +11,8 @@
 <body>
 
 	<h1>Trouver client</h1>
-	<p>Cher utilisateur, merci de bien vouloir entrer l'id du client recherché</p>
+	<h2><%= new Date() %></h2>
+	<p>Cher ${connectedUser.login}, merci de bien vouloir entrer l'id du client recherché</p>
 
 	<form method="post" action="FindClient">
 		<fieldset>
@@ -30,7 +34,7 @@
 <!-- boutton home et footer -->
 <br>
 	<br>
-	<a href="index.html"> <img border="0" src="img/home.png" width="60" height="60"></a>
+	<a href="index.jsp"> <img border="0" src="img/home.png" width="60" height="60"></a>
 	<br>
 	<br>
 <div id="footer">© Copyright 2018</div>
